@@ -1,10 +1,10 @@
-# This image is used to run PHP IDEs (e.g. PhpStorm) in a containerized environment.
-# Included: PHP, Composer, Helm, Docker CLI, SSH server, xdebug, phpunit
+# Run development environment for Helm charts
+# Included: Helm, kubectl, nodejs, yamllint
 
 FROM tliin/debian-ide-base:latest
 ARG node_major=18
 USER root
-# Install PHP
+# Install Python
 RUN apt-get install --no-install-recommends -y \
     python3 \
     python3-yaml
@@ -25,7 +25,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_${node_major}.x | bash -
 RUN apt-get update && apt-get install -y --no-install-recommends \
     helm \
     kubectl \
-    nodejs
+    npm
 
 # Run npm installer
 RUN npm install yamllint;
