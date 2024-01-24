@@ -31,7 +31,7 @@ jobs:
 
         if [[ -f ${{ env.cidata }}/version_number.txt ]]; then
           version_number=$(cat "${{ env.cidata }}/version_number.txt")
-          version_number=$version_number+1
+          version_number=$(( $version_number+1 ))
           echo "Version number found. Incrementing."
           echo "Current version is $version_number"
         else
