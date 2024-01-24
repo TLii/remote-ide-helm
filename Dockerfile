@@ -25,7 +25,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_${node_major}.x | bash -
 RUN apt-get update && apt-get install -y --no-install-recommends \
     helm \
     kubectl \
-    npm \
     nodejs
 
 # Run npm installer
