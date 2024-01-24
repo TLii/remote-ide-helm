@@ -28,6 +28,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs
 
 # Run npm installer
-RUN npm install yamllint;
+RUN npm install yaml-lint;
 
 USER 1000
