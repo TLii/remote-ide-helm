@@ -1,7 +1,7 @@
 # Run development environment for Helm charts
 # Included: Helm, kubectl, nodejs, yamllint
 
-FROM tliin/remote-debian-base:latest
+FROM tliin/remote-debian-base:master
 ARG node_major=18
 USER root
 # Install Python
