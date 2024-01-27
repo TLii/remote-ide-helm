@@ -26,10 +26,13 @@ Not yet.
 - `/usr/local/etc/ssh`: The location of ssh(d) configuration. This should be persisted to maintain ssh keys over instances.
 
 ### Persisting SSH
+
 To ensure painless SSH connection, you should persist container sshd's server keys as and other configuration instructed above. By persisting them you'll avoid warnings and/or errors about changing server keys and key fingerprints.
 If you want to use SSH key authentication instead of passwords, you can provide container with SSH keys in either of two ways (or even both):
+
 - providing keys as and environment variable in base64 encoded format; and/or
 - placing keyfiles under `$HOME/.ssh/authorized_keys.d`
+
 Password login for the user is always available. You can use that if key authentication is not possible. You can either provide a chosen password with `IDE_PASSWORD` or let the container make one for you during startup. The latter choice implies the password will change on every container restart.
 
 ### Custom scripting
