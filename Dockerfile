@@ -4,11 +4,6 @@
 FROM tliin/remote-debian-base:master
 ARG node_major=18
 USER root
-# Install Python
-RUN apt-get install --no-install-recommends -y \
-    python3 \
-    python3-yaml
-
 
 ## SETUP ADDITIONAL TOOLS ##
 # Setup Helm
@@ -23,9 +18,13 @@ RUN curl -fsSL https://deb.nodesource.com/setup_${node_major}.x | bash -
 
 # Run apt install
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    python3-yaml \
     helm \
     kubectl \
-    nodejs
+    nodejs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Run npm installer
 RUN npm install yaml-lint;
